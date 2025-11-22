@@ -1,0 +1,303 @@
+/* ============================================
+   HERITAGE LUXE MINIMAL - Design System Override
+   Bandhej Bazar Premium Enhancement
+   ============================================ */
+
+/* Heritage Luxe Minimal Color Palette */
+:root {
+    /* Primary Heritage Colors */
+    --ivory: #F8F6F2;
+    --charcoal: #2B2B2B;
+    --warm-gold: #C8A46D;
+    --champagne: #E8D5B7;
+    --soft-grey: #EAE8E5;
+
+    /* Override existing colors with Heritage palette */
+    --color-primary: var(--warm-gold) !important;
+    --color-secondary: var(--champagne) !important;
+    --color-accent: var(--warm-gold) !important;
+    --color-dark: var(--charcoal) !important;
+    --color-gray-100: var(--ivory) !important;
+    --color-gray-200: var(--soft-grey) !important;
+
+    /* Glass-morphism */
+    --glass-white: rgba(255, 255, 255, 0.6);
+    --glass-ivory: rgba(248, 246, 242, 0.7);
+    --glass-border-color: rgba(255, 255, 255, 0.3);
+    --glass-shadow: rgba(0, 0, 0, 0.08);
+
+    /* Refined Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--warm-gold) 0%, var(--champagne) 100%) !important;
+    --gradient-hero: linear-gradient(135deg, rgba(43, 43, 43, 0.7) 0%, rgba(43, 43, 43, 0.4) 100%) !important;
+
+    /* Refined Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+    --shadow-glass: 0 8px 32px var(--glass-shadow);
+
+    /* Smooth Transitions */
+    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    --transition-base: 400ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ============================================
+   GLASS-MORPHISM UTILITIES
+   ============================================ */
+.glass-panel {
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius-lg);
+}
+
+.glass-panel-ivory {
+    background: var(--glass-ivory);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--shadow-glass);
+}
+
+.glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.glass-overlay.active,
+*:hover>.glass-overlay {
+    opacity: 1;
+}
+
+/* ============================================
+   TYPOGRAPHY ENHANCEMENTS
+   ============================================ */
+h1,
+h2,
+h3 {
+    font-weight: 400 !important;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-weight: 300 !important;
+}
+
+.text-serif {
+    font-family: var(--font-heading);
+}
+
+.text-editorial {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+/* ============================================
+   ENHANCED PRODUCT CARDS
+   ============================================ */
+.product-card {
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow) !important;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+
+.product-card .product-overlay-glass {
+    position: absolute;
+    inset: 0;
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    border-radius: inherit;
+}
+
+.product-card:hover .product-overlay-glass {
+    opacity: 1;
+}
+
+/* ============================================
+   HERO SECTION ENHANCEMENT
+   ============================================ */
+.hero {
+    background: var(--ivory) !important;
+    position: relative;
+    min-height: 90vh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    color: var(--charcoal);
+    font-weight: 300;
+}
+
+.hero p {
+    color: var(--color-gray-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   BUTTON REFINEMENTS
+   ============================================ */
+.btn-primary {
+    background: var(--warm-gold) !important;
+    color: var(--charcoal) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.875rem !important;
+}
+
+.btn-primary:hover {
+    background: var(--champagne) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.btn-ghost {
+    border-color: var(--warm-gold) !important;
+    color: var(--warm-gold) !important;
+}
+
+.btn-ghost:hover {
+    background: var(--warm-gold) !important;
+    color: var(--charcoal) !important;
+}
+
+/* ============================================
+   NAVIGATION ENHANCEMENT
+   ============================================ */
+.header.scrolled {
+    background: var(--glass-white) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border-color);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--charcoal) !important;
+}
+
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+.section {
+    background: var(--ivory);
+}
+
+.section:nth-child(even) {
+    background: var(--soft-grey);
+}
+
+/* ============================================
+   FILTER SECTION REFINEMENT
+   ============================================ */
+.filters-section {
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border-color);
+    margin-bottom: 3rem;
+}
+
+select,
+input[type="text"] {
+    border: 1px solid var(--soft-grey) !important;
+    background: var(--ivory) !important;
+    color: var(--charcoal) !important;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: var(--warm-gold) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(200, 164, 109, 0.1);
+}
+
+/* ============================================
+   CART & WISHLIST PANELS
+   ============================================ */
+.cart-panel {
+    background: var(--ivory) !important;
+}
+
+.cart-header {
+    border-bottom: 1px solid var(--soft-grey) !important;
+}
+
+/* ============================================
+   MODAL ENHANCEMENTS
+   ============================================ */
+.modal-content {
+    background: var(--ivory) !important;
+    border: 1px solid var(--glass-border-color);
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+
+    .glass-panel,
+    .glass-panel-ivory {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .product-card:hover {
+        transform: translateY(-4px) !important;
+    }
+}
