@@ -811,16 +811,6 @@ function renderProducts() {
     if (currentFilters.sort === 'price-low') {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (currentFilters.sort === 'price-high') {
-        filteredProducts.sort((a, b) => b.price - a.price);
-    } else if (currentFilters.sort === 'newest') {
-        filteredProducts.sort((a, b) => b.id - a.id);
-    }
-
-    // Render products
-    productsGrid.innerHTML = filteredProducts.map(product => {
-        const isInWishlist = wishlist.some(item => item.id === product.id);
-        return `
-        <div class="product-card" data-product-id="${product.id}">
             <div class="product-image" onclick="openProductModal(${product.id})">
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
@@ -838,13 +828,13 @@ function renderProducts() {
                     </button>
                 </div>
             </div>
-        </div>
-    `}).join('');
+        </div >
+            `}).join('');
 
     // Add animation
     const cards = productsGrid.querySelectorAll('.product-card');
     cards.forEach((card, index) => {
-        card.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s backwards`;
+        card.style.animation = `fadeInUp 0.6s ease ${ index * 0.1 }s backwards`;
     });
 }
 
@@ -860,7 +850,7 @@ function openProductModal(productId) {
     const isInWishlist = wishlist.some(item => item.id === product.id);
 
     modalContent.innerHTML = `
-        <div class="product-detail-grid">
+            < div class="product-detail-grid" >
             <div class="product-detail-image">
                 <img src="${product.image}" alt="${product.name}">
             </div>
@@ -890,8 +880,8 @@ function openProductModal(productId) {
                     </button>
                 </div>
             </div>
-        </div>
-    `;
+        </div >
+            `;
 
     modal.classList.add('active');
 }
@@ -945,7 +935,7 @@ function updateWishlistUI() {
         wishlistEmpty.style.display = 'none';
 
         wishlistItems.innerHTML = wishlist.map(item => `
-            <div class="cart-item">
+            < div class="cart-item" >
                 <div class="cart-item-image">
                     <img src="${item.image}" alt="${item.name}">
                 </div>
@@ -959,8 +949,8 @@ function updateWishlistUI() {
                 <div class="cart-item-remove" onclick="toggleWishlist(${item.id})">
                     <i class="fas fa-trash"></i>
                 </div>
-            </div>
-        `).join('');
+            </div >
+            `).join('');
     }
 }
 
@@ -1037,7 +1027,7 @@ function updateCartUI() {
         cartFooter.style.display = 'block';
 
         cartItems.innerHTML = cart.map(item => `
-            <div class="cart-item">
+            < div class="cart-item" >
                 <div class="cart-item-image">
                     <img src="${item.image}" alt="${item.name}">
                 </div>
@@ -1053,12 +1043,12 @@ function updateCartUI() {
                 <div class="cart-item-remove" onclick="removeFromCart(${item.id})">
                     <i class="fas fa-trash"></i>
                 </div>
-            </div>
-        `).join('');
+            </div >
+            `).join('');
 
         // Update total
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        cartTotal.textContent = `₹${total.toLocaleString('en-IN')}`;
+        cartTotal.textContent = `₹${ total.toLocaleString('en-IN') } `;
     }
 }
 
@@ -1088,11 +1078,11 @@ function nextStep(step) {
     }
 
     // Hide current step
-    document.getElementById(`step${currentCheckoutStep}`).classList.add('hidden');
+    document.getElementById(`step${ currentCheckoutStep } `).classList.add('hidden');
 
     // Show next step
     currentCheckoutStep = step;
-    document.getElementById(`step${currentCheckoutStep}`).classList.remove('hidden');
+    document.getElementById(`step${ currentCheckoutStep } `).classList.remove('hidden');
 
     updateCheckoutProgress();
     updateCheckoutSummary();
@@ -1100,11 +1090,11 @@ function nextStep(step) {
 
 function prevStep(step) {
     // Hide current step
-    document.getElementById(`step${currentCheckoutStep}`).classList.add('hidden');
+    document.getElementById(`step${ currentCheckoutStep } `).classList.add('hidden');
 
     // Show previous step
     currentCheckoutStep = step;
-    document.getElementById(`step${currentCheckoutStep}`).classList.remove('hidden');
+    document.getElementById(`step${ currentCheckoutStep } `).classList.remove('hidden');
 
     updateCheckoutProgress();
 }
@@ -1170,29 +1160,31 @@ function updateCheckoutSummary() {
     const total = subtotal + shipping;
 
     summaryDiv.innerHTML = `
-        <div style="margin-bottom: 1rem;">
-            ${cart.map(item => `
+            < div style = "margin-bottom: 1rem;" >
+                ${
+                    cart.map(item => `
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                     <span>${item.name} × ${item.quantity}</span>
                     <span>₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
                 </div>
-            `).join('')}
-        </div>
-        <div style="border-top: 2px solid var(--color-gray-200); padding-top: 1rem;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span>Subtotal:</span>
-                <span>₹${subtotal.toLocaleString('en-IN')}</span>
+            `).join('')
+        }
+        </div >
+            <div style="border-top: 2px solid var(--color-gray-200); padding-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Subtotal:</span>
+                    <span>₹${subtotal.toLocaleString('en-IN')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Shipping:</span>
+                    <span>${shipping === 0 ? 'FREE' : '₹' + shipping.toLocaleString('en-IN')}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 700; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--color-gray-200);">
+                    <span>Total:</span>
+                    <span style="color: var(--color-primary);">₹${total.toLocaleString('en-IN')}</span>
+                </div>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span>Shipping:</span>
-                <span>${shipping === 0 ? 'FREE' : '₹' + shipping.toLocaleString('en-IN')}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 700; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--color-gray-200);">
-                <span>Total:</span>
-                <span style="color: var(--color-primary);">₹${total.toLocaleString('en-IN')}</span>
-            </div>
-        </div>
-    `;
+        `;
 }
 
 function handleCheckoutSubmit(e) {
@@ -1264,17 +1256,17 @@ function showToast(message, type = 'info') {
     if (!container) return;
 
     const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
+    toast.className = `toast ${ type } `;
 
     const icon = type === 'success' ? 'check-circle' :
         type === 'error' ? 'exclamation-circle' :
             'info-circle';
 
     toast.innerHTML = `
-        <i class="fas fa-${icon}"></i>
+            < i class="fas fa-${icon}" ></i >
         <span class="toast-message">${message}</span>
         <i class="fas fa-times toast-close" onclick="this.parentElement.remove()"></i>
-    `;
+        `;
 
     container.appendChild(toast);
 
@@ -1287,9 +1279,9 @@ function showToast(message, type = 'info') {
 // Add pulse animation to CSS dynamically
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-    }
-`;
+        @keyframes pulse {
+            0 %, 100 % { transform: scale(1); }
+            50 % { transform: scale(1.2); }
+        }
+        `;
 document.head.appendChild(style);
