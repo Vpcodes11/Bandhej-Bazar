@@ -533,6 +533,10 @@ let wishlist = JSON.parse(localStorage.getItem('bandhejWishlist')) || [];
 let orders = JSON.parse(localStorage.getItem('bandhejOrders')) || [];
 let currentFilters = {
     search: '',
+    productType: 'all',
+    fabric: 'all',
+    occasion: 'all',
+    pattern: 'all',
     color: 'all',
     price: 'all',
     sort: 'featured'
@@ -618,6 +622,26 @@ function setupEventListeners() {
     // Filter listeners
     document.getElementById('searchInput')?.addEventListener('input', (e) => {
         currentFilters.search = e.target.value.toLowerCase();
+        renderProducts();
+    });
+
+    document.getElementById('productTypeFilter')?.addEventListener('change', (e) => {
+        currentFilters.productType = e.target.value;
+        renderProducts();
+    });
+
+    document.getElementById('fabricFilter')?.addEventListener('change', (e) => {
+        currentFilters.fabric = e.target.value;
+        renderProducts();
+    });
+
+    document.getElementById('occasionFilter')?.addEventListener('change', (e) => {
+        currentFilters.occasion = e.target.value;
+        renderProducts();
+    });
+
+    document.getElementById('patternFilter')?.addEventListener('change', (e) => {
+        currentFilters.pattern = e.target.value;
         renderProducts();
     });
 
@@ -744,12 +768,41 @@ function renderProducts() {
         );
     }
 
+    // Apply product type filter
+    if (currentFilters.productType !== 'all') {
+        filteredProducts = filteredProducts.filter(product =>
+            product.productType === currentFilters.productType
+        );
+    }
+
+    // Apply fabric filter
+    if (currentFilters.fabric !== 'all') {
+        filteredProducts = filteredProducts.filter(product =>
+            product.fabric === currentFilters.fabric
+        );
+    }
+
+    // Apply occasion filter
+    if (currentFilters.occasion !== 'all') {
+        filteredProducts = filteredProducts.filter(product =>
+            product.occasion === currentFilters.occasion
+        );
+    }
+
+    // Apply pattern filter
+    if (currentFilters.pattern !== 'all') {
+        filteredProducts = filteredProducts.filter(product =>
+            product.pattern === currentFilters.pattern
+        );
+    }
+
     // Apply price filter
     if (currentFilters.price !== 'all') {
         filteredProducts = filteredProducts.filter(product => {
             if (currentFilters.price === 'low') return product.price < 5000;
             if (currentFilters.price === 'mid') return product.price >= 5000 && product.price <= 10000;
-            if (currentFilters.price === 'high') return product.price > 10000;
+            if (currentFilters.price === 'high') return product.price > 10000 && product.price <= 20000;
+            if (currentFilters.price === 'luxury') return product.price > 20000;
             return true;
         });
     }

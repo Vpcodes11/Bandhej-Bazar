@@ -112,8 +112,8 @@
     <section class="hero" id="home">
         <div class="hero-pattern"></div>
         <div class="hero-content">
-            <h1>Exquisite Bandhani Sarees</h1>
-            <p>Discover the timeless beauty of traditional tie-dye artistry. Each saree is a masterpiece, handcrafted
+            <h1>Exquisite Bandhani Collection</h1>
+            <p>Discover the timeless beauty of traditional tie-dye artistry. Each piece is a masterpiece, handcrafted
                 with love and heritage.</p>
             <div class="hero-buttons">
                 <a href="#collection" class="btn btn-primary">
@@ -121,33 +121,135 @@
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="#about" class="btn btn-ghost">
-                    <div class="section-title">
-                        <h2>The Art of <span class="text-gradient">Bandhani</span></h2>
-                    </div>
-                    <div class="grid grid-2" style="align-items: center; gap: 3rem;">
-                        <div>
-                            <h3>A Heritage of Excellence</h3>
-                            <p>Bandhani, also known as Bandhej, is an ancient tie-dye textile art form that has been
-                                practiced
-                                in Gujarat and Rajasthan for over 5,000 years. Each saree is a labor of love, with
-                                thousands of
-                                tiny knots tied by skilled artisans before dyeing.</p>
-                            <p>The intricate patterns and vibrant colors represent centuries of tradition, passed down
-                                through
-                                generations. Every piece tells a story of cultural heritage and artistic mastery.</p>
-                            <p>At Bandhej Bazar, we work directly with master craftsmen to bring you authentic, premium
-                                quality
-                                Bandhani sarees that celebrate this timeless art form.</p>
-                            <div style="margin-top: 2rem;">
-                                <a href="#collection" class="btn btn-primary">Shop Now</a>
-                            </div>
-                        </div>
-                        <div
-                            style="background: var(--gradient-primary); border-radius: var(--radius-xl); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                    </div>
+                    <span>Learn More</span>
+                </a>
             </div>
+        </div>
+    </section>
+
+    <!-- COLLECTION SECTION -->
+    <section class="section" id="collection">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span class="text-gradient">Premium Collection</span></h2>
+                <p>36 handpicked pieces across Sarees, Dupattas, Lehengas & Dress Materials</p>
+            </div>
+
+            <!-- FILTERS -->
+            <div class="filters-section">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="searchInput">Search</label>
+                        <input type="text" id="searchInput" placeholder="Search products..."
+                            aria-label="Search products">
+                    </div>
+                    <div class="filter-group">
+                        <label for="productTypeFilter">Product Type</label>
+                        <select id="productTypeFilter" aria-label="Filter by product type">
+                            <option value="all">All Products</option>
+                            <option value="saree">Sarees</option>
+                            <option value="dupatta">Dupattas</option>
+                            <option value="lehenga">Lehengas</option>
+                            <option value="dress-material">Dress Materials</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="fabricFilter">Fabric</label>
+                        <select id="fabricFilter" aria-label="Filter by fabric">
+                            <option value="all">All Fabrics</option>
+                            <option value="silk">Silk</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="georgette">Georgette</option>
+                            <option value="chiffon">Chiffon</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="occasionFilter">Occasion</label>
+                        <select id="occasionFilter" aria-label="Filter by occasion">
+                            <option value="all">All Occasions</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="festive">Festive</option>
+                            <option value="party">Party</option>
+                            <option value="casual">Casual</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="patternFilter">Pattern</label>
+                        <select id="patternFilter" aria-label="Filter by pattern">
+                            <option value="all">All Patterns</option>
+                            <option value="bandhani">Bandhani</option>
+                            <option value="leheriya">Leheriya</option>
+                            <option value="tie-dye">Tie-Dye</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="colorFilter">Color</label>
+                        <select id="colorFilter" aria-label="Filter by color">
+                            <option value="all">All Colors</option>
+                            <option value="red">Red & Gold</option>
+                            <option value="blue">Blue & Turquoise</option>
+                            <option value="pink">Pink & Magenta</option>
+                            <option value="green">Green & Emerald</option>
+                            <option value="purple">Purple</option>
+                            <option value="orange">Orange</option>
+                            <option value="black">Black & Gold</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="priceFilter">Price Range</label>
+                        <select id="priceFilter" aria-label="Filter by price">
+                            <option value="all">All Prices</option>
+                            <option value="low">Under ₹5,000</option>
+                            <option value="mid">₹5,000 - ₹10,000</option>
+                            <option value="high">₹10,000 - ₹20,000</option>
+                            <option value="luxury">Above ₹20,000</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortFilter">Sort By</label>
+                        <select id="sortFilter" aria-label="Sort products">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTS GRID -->
+            <div class="grid grid-4" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about" style="background: var(--color-white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Art of <span class="text-gradient">Bandhani</span></h2>
+            </div>
+            <div class="grid grid-2" style="align-items: center; gap: 3rem;">
+                <div>
+                    <h3>A Heritage of Excellence</h3>
+                    <p>Bandhani, also known as Bandhej, is an ancient tie-dye textile art form that has been practiced
+                        in Gujarat and Rajasthan for over 5,000 years. Each saree is a labor of love, with thousands of
+                        tiny knots tied by skilled artisans before dyeing.</p>
+                    <p>The intricate patterns and vibrant colors represent centuries of tradition, passed down through
+                        generations. Every piece tells a story of cultural heritage and artistic mastery.</p>
+                    <p>At Bandhej Bazar, we work directly with master craftsmen to bring you authentic, premium quality
+                        Bandhani products that celebrate this timeless art form.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#collection" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div
+                    style="background: var(--gradient-primary); border-radius: var(--radius-xl); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FEATURES SECTION -->
@@ -159,14 +261,15 @@
                         <i class="fas fa-hands"></i>
                     </div>
                     <h4>Handcrafted</h4>
-                    <p>Each saree is meticulously handcrafted by skilled artisans using traditional techniques.</p>
+                    <p>Each piece is meticulously handcrafted by skilled artisans using traditional techniques.</p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 1rem;">
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h4>Authentic</h4>
-                    <p>100% genuine Bandhani sarees sourced directly from master craftsmen in Gujarat and Rajasthan.</p>
+                    <p>100% genuine Bandhani products sourced directly from master craftsmen in Gujarat and Rajasthan.
+                    </p>
                 </div>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="font-size: 3rem; color: var(--color-accent); margin-bottom: 1rem;">
@@ -218,7 +321,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Bandhej Bazar</h4>
-                    <p>Your destination for authentic, premium Bandhani sarees. Celebrating tradition, craftsmanship,
+                    <p>Your destination for authentic, premium Bandhani products. Celebrating tradition, craftsmanship,
                         and timeless beauty.</p>
 
                     <!-- Newsletter Subscription -->
@@ -323,28 +426,28 @@
         <div class="modal-content modal-large">
             <span class="modal-close" id="productModalClose">&times;</span>
             <div id="productModalContent">
-                <!-- Product details will be inserted here -->
+                <!-- Product details will be dynamically inserted here -->
             </div>
         </div>
     </div>
 
     <!-- CHECKOUT MODAL -->
     <div class="modal" id="checkoutModal">
-        <div class="modal-content modal-large">
+        <div class="modal-content">
             <span class="modal-close" id="checkoutModalClose">&times;</span>
             <h2 style="margin-bottom: 2rem;">Checkout</h2>
 
             <!-- Progress Indicator -->
             <div class="checkout-progress">
-                <div class="progress-step active" data-step="1">
+                <div class="progress-step active">
                     <div class="step-number">1</div>
                     <div class="step-label">Contact</div>
                 </div>
-                <div class="progress-step" data-step="2">
+                <div class="progress-step">
                     <div class="step-number">2</div>
                     <div class="step-label">Shipping</div>
                 </div>
-                <div class="progress-step" data-step="3">
+                <div class="progress-step">
                     <div class="step-number">3</div>
                     <div class="step-label">Payment</div>
                 </div>
@@ -364,7 +467,7 @@
                             <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
+                            <label for="phone">Phone *</label>
                             <input type="tel" id="phone" required>
                         </div>
                     </div>
@@ -376,8 +479,8 @@
                     <h3>Shipping Address</h3>
                     <div class="form-grid">
                         <div class="form-group full-width">
-                            <label for="address">Street Address *</label>
-                            <input type="text" id="address" required>
+                            <label for="address">Address *</label>
+                            <textarea id="address" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="city">City *</label>
@@ -389,7 +492,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pincode">PIN Code *</label>
-                            <input type="text" id="pincode" required pattern="[0-9]{6}">
+                            <input type="text" id="pincode" required maxlength="6">
                         </div>
                     </div>
                     <div style="display: flex; gap: 1rem;">
@@ -412,20 +515,19 @@
                         <label class="payment-option">
                             <input type="radio" name="payment" value="upi">
                             <div class="payment-card">
-                                <i class="fab fa-google-pay"></i>
-                                <span>UPI / PhonePe / GPay</span>
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI</span>
                             </div>
                         </label>
                         <label class="payment-option">
                             <input type="radio" name="payment" value="card">
                             <div class="payment-card">
                                 <i class="fas fa-credit-card"></i>
-                                <span>Credit / Debit Card</span>
+                                <span>Card</span>
                             </div>
                         </label>
                     </div>
 
-                    <!-- Order Summary -->
                     <div class="order-summary">
                         <h4>Order Summary</h4>
                         <div id="checkoutSummary"></div>
@@ -433,7 +535,7 @@
 
                     <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                         <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
-                        <button type="submit" class="btn btn-primary">Place Order</button>
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">Place Order</button>
                     </div>
                 </div>
             </form>
@@ -444,9 +546,9 @@
     <div id="toastContainer"></div>
 
     <!-- SCROLL TO TOP BUTTON -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+    <div class="scroll-to-top" id="scrollToTop">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
